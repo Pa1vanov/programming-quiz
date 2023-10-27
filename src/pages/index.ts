@@ -1,1 +1,1 @@
-export * as Home from './home'
+export * as Auth from './auth'
