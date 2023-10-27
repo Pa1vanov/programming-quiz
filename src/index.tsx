@@ -1,19 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom'
+import { MantineProvider } from '@mantine/core'
+import { Notifications } from '@mantine/notifications'
+import ReactDOM from 'react-dom/client'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import Routes from 'routes/routes'
+import { QueryParamProvider } from 'use-query-params'
+import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6'
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+
+const client = new QueryClient()
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  <BrowserRouter>
+    <QueryParamProvider adapter={ReactRouter6Adapter}>
+      <QueryClientProvider client={client}>
+        <MantineProvider withNormalizeCSS>
+          <Notifications position="top-right" />
+          <Routes />
+        </MantineProvider>
+      </QueryClientProvider>
+    </QueryParamProvider>
+  </BrowserRouter>
+)
