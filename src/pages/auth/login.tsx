@@ -108,12 +108,12 @@ const Login = (props: LoginProps) => {
             >
               Login
             </Button>
-            {/* <p onClick={() => navigate('/auth/register')} style={{ color: '#7D7D7D', cursor: 'pointer', alignSelf: 'center' }}>
-            Don't have an Account? <span style={{ color: '#000' }}>Register</span>
-          </p>
-          <p onClick={() => navigate('/auth/forgot-password')} style={{ color: '#4D4D4D', cursor: 'pointer', alignSelf: 'center' }}>
-            Forgot Password?
-          </p> */}
+            <p onClick={() => navigate('/auth/register')} style={{ color: '#7D7D7D', cursor: 'pointer', alignSelf: 'center' }}>
+              Don't have an Account? <span style={{ color: '#000' }}>Register</span>
+            </p>
+            <p onClick={() => navigate('/auth/forgot-password')} style={{ color: '#4D4D4D', cursor: 'pointer', alignSelf: 'center' }}>
+              Forgot Password?
+            </p>
           </Flex>
         </Box>
         {/* </form> */}
