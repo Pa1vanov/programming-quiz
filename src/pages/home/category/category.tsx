@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { Button, Flex, Text, TextInput } from '@mantine/core'
 
+import Navbar from '../navbar'
+
 interface Category {
   id: string
   name: string
@@ -8,28 +10,28 @@ interface Category {
 
 const categories: Category[] = [
   {
-    id: 'general-knowledge',
-    name: 'General Knowledge'
+    id: 'python',
+    name: 'Python'
   },
   {
-    id: 'science',
-    name: 'Science'
+    id: 'javascript',
+    name: 'JavaScript'
   },
   {
-    id: 'history',
-    name: 'History'
+    id: 'c#',
+    name: 'C#'
   },
   {
-    id: 'geography',
-    name: 'Geography'
+    id: 'flutter',
+    name: 'Flutter'
   },
   {
-    id: 'entertainment',
-    name: 'Entertainment'
+    id: '.net',
+    name: '.Net'
   },
   {
-    id: 'sports',
-    name: 'Sports'
+    id: 'go',
+    name: 'Go'
   }
 ]
 
@@ -41,7 +43,8 @@ const QuizAppCategoryPage: React.FC = () => {
   }
 
   return (
-    <Flex className="quiz-app-category-page" direction="column" gap={20} p={20}>
+    <Flex className="quiz-app-category-page" direction="column" gap={20} p={10}>
+      <Navbar />
       <Text size="xl" weight="bold">
         Quiz App Categories
       </Text>
