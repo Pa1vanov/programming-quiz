@@ -8,28 +8,28 @@ interface Category {
 
 const categories: Category[] = [
   {
-    id: 'general-knowledge',
-    name: 'General Knowledge'
+    id: 'python',
+    name: 'Python'
   },
   {
-    id: 'science',
-    name: 'Science'
+    id: 'javascript',
+    name: 'JavaScript'
   },
   {
-    id: 'history',
-    name: 'History'
+    id: 'c#',
+    name: 'C#'
   },
   {
-    id: 'geography',
-    name: 'Geography'
+    id: 'flutter',
+    name: 'Flutter'
   },
   {
-    id: 'entertainment',
-    name: 'Entertainment'
+    id: '.net',
+    name: '.Net'
   },
   {
-    id: 'sports',
-    name: 'Sports'
+    id: 'go',
+    name: 'Go'
   }
 ]
 
