@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes as Switch } from 'react-router-dom'
 import { useAuth } from 'modules/auth/context'
-import { Auth } from 'pages'
+import { Auth, Main } from 'pages'
 
 import Protected from './protected'
 
@@ -16,7 +16,9 @@ const Routes = () => {
         <Route index path="*" element={<Navigate to="/auth/login" />} />
       </Route>
 
-      <Route path="*" element={<Navigate to="/auth/login" />} />
+      <Route path="" element={<Main.Category />} />
+      <Route path="quizzes/:id" element={<Main.Category />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Switch>
   )
 }
