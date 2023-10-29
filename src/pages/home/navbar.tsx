@@ -10,7 +10,7 @@ const Navbar = (props: NavbarProps) => {
   return (
     <Box>
       <Flex p="20px 90px" h="80px" align="center" justify="space-between">
-        <Title color="dark">QUIZ APP</Title>
+        <Title color="white">QUIZ APP</Title>
 
         <Menu shadow="md" width={200}>
           <Menu.Target>
