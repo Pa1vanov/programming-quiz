@@ -62,7 +62,7 @@ const QuizAppCategoryPage: React.FC = () => {
       {/* <Text size="xl" weight="bold">
         Choose Category
       </Text> */}
-      <Flex justify="center" direction="row" wrap="wrap" gap={50}>
+      <Flex justify="center" direction="row" wrap="wrap" gap={50} mb={30}>
         {categories.map(category => (
           <Box
             p="xl"
@@ -85,7 +85,7 @@ const QuizAppCategoryPage: React.FC = () => {
               {category.description}
             </Text>
             <br />
-            <Button bg="grape" color="grape" onClick={() => handleCategoryClick(category)}>
+            <Button color="blue" onClick={() => handleCategoryClick(category)}>
               Try
             </Button>
           </Box>
