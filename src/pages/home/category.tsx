@@ -59,10 +59,8 @@ const QuizAppCategoryPage: React.FC = () => {
   return (
     <Flex className="quiz-app-category-page" direction="column" gap={20}>
       <Navbar />
-      {/* <Text size="xl" weight="bold">
-        Choose Category
-      </Text> */}
-      <Flex justify="center" direction="row" wrap="wrap" gap={50} mb={30}>
+
+      <Flex justify="center" direction="row" wrap="wrap" gap={50}>
         {categories.map(category => (
           <Box
             p="xl"
@@ -86,7 +84,7 @@ const QuizAppCategoryPage: React.FC = () => {
             </Text>
             <br />
             <Button color="blue" onClick={() => handleCategoryClick(category)}>
-              Try
+              Try Test
             </Button>
           </Box>
         ))}
