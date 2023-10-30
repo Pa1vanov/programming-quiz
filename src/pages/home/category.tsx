@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { Badge, Box, Button, Flex, Text } from '@mantine/core'
 
+import { Footer } from 'components'
+
 import Navbar from './navbar/navbar'
 
 interface Category {
@@ -59,7 +61,6 @@ const QuizAppCategoryPage: React.FC = () => {
   return (
     <Flex className="quiz-app-category-page" direction="column" gap={20}>
       <Navbar />
-
       <Flex justify="center" direction="row" wrap="wrap" gap={50}>
         {categories.map(category => (
           <Box
@@ -89,6 +90,7 @@ const QuizAppCategoryPage: React.FC = () => {
           </Box>
         ))}
       </Flex>
+      <Footer />
     </Flex>
   )
 }

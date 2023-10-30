@@ -10,6 +10,7 @@ const Routes = () => {
   return (
     <Switch>
       {/* AUTH */}
+
       <Route path="auth" element={<Protected allow={!isAuthenticated} navigate="/" />}>
         <Route path="login" element={<Auth.Login />} />
         <Route path="register" element={<Auth.Register />} />
@@ -18,6 +19,7 @@ const Routes = () => {
 
       <Route path="" element={<Main.Category />} />
       <Route path="quizzes/:categoryId" element={<Main.Quiz />} />
+      <Route path="aboutUs" element={<Main.AboutUs />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Switch>
   )

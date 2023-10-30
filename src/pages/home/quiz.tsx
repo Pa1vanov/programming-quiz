@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Box, Button, Text, Title } from '@mantine/core'
 
-import Navbar from './navbar/navbar'
-
 interface Quiz {
   id: string
   image: string
@@ -68,9 +66,7 @@ const QuizCategoryPage: React.FC = () => {
 
   return (
     <Box className="quiz-category-page">
-      <Navbar />
-
-      <Box h="100vh" bg="#A76AE4">
+      <Box h="100vh">
         <br />
         {categoryQuizzes.map((quiz, idx) => (
           <Box
@@ -95,8 +91,8 @@ const QuizCategoryPage: React.FC = () => {
             <div>
               <Text
                 align="center"
-                m="auto"
-                p="5px"
+                p="3px"
+                h="55px"
                 bg="white"
                 onClick={() => handleAnswerClick(quiz.correctAnswer)}
                 sx={{
@@ -109,25 +105,29 @@ const QuizCategoryPage: React.FC = () => {
               >
                 {quiz.correctAnswer}
               </Text>
-
+              <br />
               {quiz.wrongAnswers.map((wrongAnswer: any, index) => (
-                <Text
-                  align="center"
-                  m="auto"
-                  p="5px"
-                  bg="white"
-                  key={index!}
-                  onClick={() => handleAnswerClick(wrongAnswer)}
-                  sx={{
-                    cursor: 'pointer',
-                    color: ' #22042e',
-                    borderRadius: '10px',
-                    boxShadow: 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px',
-                    border: selectedAnswer === wrongAnswer ? '2px solid red' : 'none'
-                  }}
-                >
-                  {wrongAnswer}
-                </Text>
+                <Box key={index!} sx={{ display: 'grid' }}>
+                  <Text
+                    p="5px"
+                    bg="white"
+                    w="310px"
+                    h="45px"
+                    onClick={() => handleAnswerClick(wrongAnswer)}
+                    sx={{
+                      cursor: 'pointer',
+                      color: ' #22042e',
+                      borderRadius: '10px',
+                      boxShadow: 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px',
+                      border: selectedAnswer === wrongAnswer ? '2px solid red' : 'none',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    {wrongAnswer}
+                  </Text>
+                </Box>
               ))}
               <br />
               <Button w="160px" sx={{ borderRadius: '30px' }}>

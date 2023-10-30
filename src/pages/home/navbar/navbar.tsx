@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Box, Button, Flex, Menu, ThemeIcon } from '@mantine/core'
 import { IconTrash } from '@tabler/icons-react'
 import { useAuth } from 'modules/auth/context'
@@ -15,7 +16,17 @@ const Navbar = (props: NavbarProps) => {
     <Box className="imgBg">
       <Flex p="50px 50px" h="120px" align="center" justify="space-between">
         <img src={img1} width="100px" height="100px" alt="Logo" />
-
+        <Flex gap={40}>
+          <Link style={{ textDecoration: 'none', color: 'black', fontSize: '18px', fontWeight: 'bold' }} to="/">
+            Home
+          </Link>
+          <Link style={{ textDecoration: 'none', color: 'black', fontSize: '18px', fontWeight: 'bold' }} to="/aboutUs">
+            About Us
+          </Link>
+          <Link style={{ textDecoration: 'none', color: 'black', fontSize: '18px', fontWeight: 'bold' }} to="/feedBack">
+            Feed Back
+          </Link>
+        </Flex>
         <Menu shadow="md" width={200}>
           <Menu.Target>
             <ThemeIcon variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>
