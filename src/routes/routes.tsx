@@ -17,7 +17,7 @@ const Routes = () => {
       </Route>
 
       <Route path="" element={<Main.Category />} />
-      <Route path="quizzes/:id" element={<Main.Category />} />
+      <Route path="quizzes/:categoryId" element={<Main.Quiz />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Switch>
   )
