@@ -70,7 +70,7 @@ const QuizCategoryPage: React.FC = () => {
     <Box className="quiz-category-page">
       <Navbar />
 
-      <Box h="100vh" bg="#A76AE4">
+      <Box h="100vh" bg="#ffffff">
         <br />
         {categoryQuizzes.map((quiz, idx) => (
           <Box
