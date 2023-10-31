@@ -8,6 +8,7 @@ import { QueryParamProvider } from 'use-query-params'
 import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './assets/style/global.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 

@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Box, Button, Flex, Image, InputBase, PasswordInput, Text } from '@mantine/core'
+import { Box, Button, Flex, InputBase, PasswordInput, Text } from '@mantine/core'
 
-import quiz from '../../assets/img/quiz 1.png'
+import LoginImg from '../../assets/img/Login-amico.png'
+
+import './login.css'
+
 // import { useForm, yupResolver } from '@mantine/form'
 // import { Api } from 'modules/auth'
 // import { useAuth } from 'modules/auth/context'
@@ -59,64 +62,45 @@ const Login = (props: LoginProps) => {
   // }
 
   return (
-    <Box bg="#A76AE4">
-      <Box
-        m="10px 0 50px 6%"
-        w="130px"
-        bg="#C7A8FC"
-        p="20px"
-        sx={{
-          borderRadius: '50%',
-          position: 'absolute'
-        }}
-      >
-        <Flex
-          bg="white"
-          p="20px"
-          align="center"
-          justify="center"
-          sx={{
-            borderRadius: '50%'
-          }}
-        >
-          <Image width="50px" src={quiz} alt="Image" />
-        </Flex>
-      </Box>
-
-      <Flex h="100vh" align="center" justify="center">
-        {/* <form onSubmit={form.onSubmit(onSubmit)}> */}
-        <Box bg="white" p="xl" sx={{ borderRadius: '15px' }}>
-          <Box w="320px" p="sm" sx={{ boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px', border: '1px solid none', borderRadius: '10px' }}>
-            <h4 style={{ textAlign: 'center', color: '#3c0452' }}>Login to Your Account</h4>
-            <Text color="#22042e" style={{ textAlign: 'center' }}>
-              Welcome back! Login to access the Quzz App.
-            </Text>
+    <Box>
+      <Button onClick={() => navigate('/')}>Back</Button>
+      <Flex className="main" align="center" justify="center" gap="xl" wrap="wrap">
+        <img style={{ width: '500px' }} src={LoginImg} alt="Img" />
+        <Flex h="100vh" align="center" justify="center">
+          {/* <form onSubmit={form.onSubmit(onSubmit)}> */}
+          <Box bg="white" p="xl" sx={{ boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px', border: '1px solid none', borderRadius: '10px' }}>
+            <Box w="320px" p="sm" sx={{ borderRadius: '10px' }}>
+              <h4 style={{ textAlign: 'center', color: '#3c0452' }}>Login to Your Account</h4>
+              <Text color="#22042e" style={{ textAlign: 'center' }}>
+                Welcome back! Login to access the Quzz App.
+              </Text>
+            </Box>
+            <br />
+            <hr />
+            <Flex w="320px" p="lg" justify="center" direction="column" gap={15}>
+              <InputBase placeholder="Email" label="Email" />
+              <PasswordInput placeholder="Password" label="Password" /> <br />
+              <Button
+                sx={{ margin: 'auto', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px' }}
+                bg="#A76AE4"
+                color="grape"
+                w="150px"
+                size="md"
+                loading={loading}
+                type="submit"
+              >
+                Login
+              </Button>
+              <p onClick={() => navigate('/auth/register')} style={{ color: '#7D7D7D', cursor: 'pointer', alignSelf: 'center' }}>
+                Don't have an Account? <span style={{ color: '#000' }}>Register</span>
+              </p>
+              <p onClick={() => navigate('/auth/forgot-password')} style={{ color: '#4D4D4D', cursor: 'pointer', alignSelf: 'center' }}>
+                Forgot Password?
+              </p>
+            </Flex>
           </Box>
-          <br />
-          <hr />
-          <Flex w="320px" p="lg" justify="center" direction="column" gap={15}>
-            <InputBase placeholder="Email" label="Email" />
-            <PasswordInput placeholder="Password" label="Password" /> <br />
-            <Button
-              sx={{ margin: 'auto', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px' }}
-              bg="#A76AE4"
-              color="grape"
-              w="150px"
-              size="md"
-              loading={loading}
-              type="submit"
-            >
-              Login
-            </Button>
-            <p onClick={() => navigate('/auth/register')} style={{ color: '#7D7D7D', cursor: 'pointer', alignSelf: 'center' }}>
-              Don't have an Account? <span style={{ color: '#000' }}>Register</span>
-            </p>
-            <p onClick={() => navigate('/auth/forgot-password')} style={{ color: '#4D4D4D', cursor: 'pointer', alignSelf: 'center' }}>
-              Forgot Password?
-            </p>
-          </Flex>
-        </Box>
-        {/* </form> */}
+          {/* </form> */}
+        </Flex>
       </Flex>
     </Box>
   )
