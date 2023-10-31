@@ -53,7 +53,7 @@ const Register = (props: RegisterProps) => {
         <Flex h="100vh" align="center" justify="center">
           {/* <form onSubmit={form.onSubmit(onSubmit)}> */}
           <Box bg="white" p="xl" sx={{ borderRadius: '15px' }}>
-            <Box w="320px" p="sm" sx={{ boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px', border: '1px solid none', borderRadius: '10px' }}>
+            <Box w="320px" p="sm">
               <h4 style={{ textAlign: 'center', color: '#3c0452' }}>Create an Account</h4>
               <Text color="#22042e" style={{ textAlign: 'center' }}>
                 Welcome! Register to access the Quzz App.

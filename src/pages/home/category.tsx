@@ -51,7 +51,7 @@ const categories: Category[] = [
   }
 ]
 
-const QuizAppCategoryPage: React.FC = () => {
+const QuizAppCategoryPage: React.FC = () => { 
   const navigate = useNavigate()
 
   const handleCategoryClick = (category: Category) => {
