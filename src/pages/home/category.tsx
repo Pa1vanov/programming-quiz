@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { Badge, Box, Button, Flex, Text } from '@mantine/core'
+import { Flex } from '@mantine/core'
 
-import { Footer } from 'components'
+import { Card, Footer } from 'components'
 
 import Navbar from './navbar/navbar'
 
@@ -40,7 +40,8 @@ const categories: Category[] = [
   {
     id: '.net',
     name: '.Net',
-    image: 'https://i.pinimg.com/564x/f8/db/32/f8db3203ce0d7e90533829056cc09715.jpg',
+    image:
+      'https://www.ibm.com/content/dam/adobe-cms/instana/media_logo/dotnetCore.component.complex-narrative-xl.ts=1690481702068.png/content/adobe-cms/us/en/products/instana/supported-technologies/dotnet-core-monitoring/_jcr_content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/logoimage',
     description: '.NET is a framework developed by Microsoft.'
   },
   {
@@ -61,33 +62,16 @@ const QuizAppCategoryPage: React.FC = () => {
   return (
     <Flex className="quiz-app-category-page" direction="column" gap={20}>
       <Navbar />
-      <Flex justify="center" direction="row" wrap="wrap" gap={50}>
+      <Flex justify="center" direction="row" wrap="wrap" gap={50} p="40px">
         {categories.map(category => (
-          <Box
-            p="xl"
-            w="270px"
-            bg="white"
-            sx={{
-              border: '1px solid white',
-              display: 'grid',
-              borderRadius: '20px',
-              boxShadow: 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px'
-            }}
+          <Card
             key={category.id}
-          >
-            <Badge size="lg" w="120px">
-              {category.name}
-            </Badge>
-            <br />
-            <img style={{ width: '150px' }} src={category.image} alt="img" /> <br />
-            <Text size="md" color="#22042e">
-              {category.description}
-            </Text>
-            <br />
-            <Button color="blue" onClick={() => handleCategoryClick(category)}>
-              Try Test
-            </Button>
-          </Box>
+            id={category.id}
+            title={category.name}
+            image={category.image}
+            description={category.description}
+            operation={() => handleCategoryClick}
+          />
         ))}
       </Flex>
       <Footer />
