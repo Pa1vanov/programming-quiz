@@ -52,26 +52,15 @@ const categories: Category[] = [
   }
 ]
 
-const QuizAppCategoryPage: React.FC = () => { 
+const QuizAppCategoryPage: React.FC = () => {
   const navigate = useNavigate()
-
-  const handleCategoryClick = (category: Category) => {
-    navigate(`/quizzes/${category.id}`)
-  }
 
   return (
     <Flex className="quiz-app-category-page" direction="column" gap={20}>
       <Navbar />
       <Flex justify="center" direction="row" wrap="wrap" gap={50} p="40px">
         {categories.map(category => (
-          <Card
-            key={category.id}
-            id={category.id}
-            title={category.name}
-            image={category.image}
-            description={category.description}
-            operation={() => handleCategoryClick}
-          />
+          <Card key={category.id} id={category.id} title={category.name} image={category.image} description={category.description} />
         ))}
       </Flex>
       <Footer />

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Box, Button, Flex, Menu, ThemeIcon } from '@mantine/core'
 import { IconTrash } from '@tabler/icons-react'
 import { useAuth } from 'modules/auth/context'
@@ -10,12 +10,13 @@ import './nav.css'
 interface NavbarProps {}
 
 const Navbar = (props: NavbarProps) => {
+  const navigate = useNavigate()
   const { methods } = useAuth()
 
   return (
     <Box className="imgBg">
       <Flex p="50px 50px" h="120px" align="center" justify="space-between" bg="#050813">
-        <img src={img1} width="50px" height="50px" alt="Logo" />
+        <img src={img1} width="50px" height="50px" alt="Logo" onClick={() => navigate('/')} />
         <Flex gap={40}>
           <Link style={{ textDecoration: 'none', color: 'white', fontSize: '18px', fontWeight: 'bold' }} to="/">
             Home

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Button } from '@mantine/core'
 
 import './card.scss'
@@ -8,9 +9,14 @@ interface ICard {
   title: string
   image: string
   description: string
-  operation: () => void
 }
-function Card({ id, title, image, description, operation }: ICard) {
+function Card({ id, title, image, description }: ICard) {
+  const navigate = useNavigate()
+
+  const handleTryClick = () => {
+    navigate(`/quizzes/${id}`)
+  }
+
   return (
     <div key={id} className="nft">
       <div className="main">
@@ -19,7 +25,7 @@ function Card({ id, title, image, description, operation }: ICard) {
         <p className="description">{description}</p>
         <div className="tokenInfo">
           <div className="duration">
-            <Button color="blue" onClick={() => operation}>
+            <Button color="blue" onClick={() => handleTryClick()}>
               Try Test
             </Button>
           </div>

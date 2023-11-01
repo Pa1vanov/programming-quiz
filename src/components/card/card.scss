@@ -1,4 +1,6 @@
 .nft {
+  display: grid;
+  place-items: center;
   user-select: none;
   max-width: 300px;
   margin: 5rem auto;
