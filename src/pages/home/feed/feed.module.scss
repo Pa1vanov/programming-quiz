@@ -1,0 +1,87 @@
+.wrapper {
+  display: flex;
+  width: 80%;
+  background-color: #fff, #141517;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  padding: 4px;
+  border: 1px solid #e9ecef, #141517;
+  @media (max-width: 48em) {
+    flex-direction: column;
+  }
+}
+
+.form {
+  flex: 1;
+  padding: 50px;
+  padding-left: calc(2rem * 2);
+  border-left: 0;
+
+  @media (max-width: 48em) {
+    padding: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+.fields {
+  margin-top: -20px;
+}
+
+.fieldInput {
+  flex: 1;
+
+  & + & {
+    margin-left: 1rem;
+
+    @media (max-width: 48em) {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.fieldsGroup {
+  display: flex;
+
+  @media (max-width: 48em) {
+    flex-direction: column;
+  }
+}
+
+.contacts {
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid transparent;
+  padding: 2rem;
+  flex: 0 0 280px;
+  @media (max-width: 48em) {
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+  }
+}
+
+.title {
+  margin-bottom: calc(2rem * 1.5);
+  font-family: Greycliff CF, var(--mantine-font-family);
+  font-size: 20px;
+
+  @media (max-width: 48em) {
+    margin-bottom: 2rem;
+  }
+}
+
+.control {
+  @media (max-width: 48em) {
+    flex: 1;
+  }
+}
