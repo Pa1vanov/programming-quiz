@@ -1,6 +1,6 @@
 .footer {
-  background: #050813;
-  padding: 20px;
+  background: #a76ae4;
+  padding: 70px;
   margin-top: rem(120px);
   border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
 }

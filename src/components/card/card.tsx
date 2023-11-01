@@ -25,7 +25,7 @@ function Card({ id, title, image, description }: ICard) {
         <p className="description">{description}</p>
         <div className="tokenInfo">
           <div className="duration">
-            <Button color="blue" onClick={() => handleTryClick()}>
+            <Button color="grape" onClick={() => handleTryClick()}>
               Try Test
             </Button>
           </div>
