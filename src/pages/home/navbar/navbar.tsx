@@ -14,7 +14,7 @@ const Navbar = (props: NavbarProps) => {
 
   return (
     <Box className="imgBg">
-      <Flex p="50px 50px" h="120px" align="center" justify="space-between" bg="#050813">
+      <Flex p="50px 50px" h="120px" align="center" justify="space-between" bg="#A76AE4">
         <img src={img1} width="50px" height="50px" alt="Logo" />
         <Flex gap={40}>
           <Link style={{ textDecoration: 'none', color: 'white', fontSize: '18px', fontWeight: 'bold' }} to="/">
