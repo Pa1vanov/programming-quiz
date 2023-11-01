@@ -37,11 +37,9 @@ const Register = (props: RegisterProps) => {
       setLoading(true)
       const { data } = await Api.Register(values)
 
-      console.log(data)
-
       console.log(values)
       success('Register successful')
-      navigate('/auth/login')
+      navigate('/auth/activate-code')
     } catch (err: any) {
       console.log('ERR', err)
     } finally {
@@ -66,7 +64,7 @@ const Register = (props: RegisterProps) => {
                 </p>
                 <h4 style={{ textAlign: 'center', color: '#3c0452' }}>Create an Account</h4>
                 <Text color="#22042e" style={{ textAlign: 'center' }}>
-                  Welcome! Register to access the Quzz.
+                  Welcome! Register to access the Quiz.
                 </Text>
               </Box>
               <hr />

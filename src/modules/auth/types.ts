@@ -5,6 +5,7 @@ export namespace IEntity {
 
   export interface Tokens {
     refresh: string
+    access: string
   }
 }
 
@@ -27,7 +28,7 @@ export namespace IForm {
 
   export interface ActivateCode {
     email: string
-    code: string
+    activate_code: string
   }
 
   export interface ResetPasswordConfirm {
@@ -41,9 +42,10 @@ export namespace IForm {
 export namespace IApi {
   export namespace Login {
     export interface Request extends IForm.Login {}
-    export interface Response extends IEntity.Tokens {
-      user: IEntity.User
+    export interface Response {
       refresh: any
+      access: any
+      user: IEntity.User
     }
   }
 
