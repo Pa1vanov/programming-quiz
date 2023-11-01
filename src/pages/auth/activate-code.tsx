@@ -18,7 +18,7 @@ const ActivateCode = (props: ActivateCodeProps) => {
     () =>
       yup.object({
         email: yup.string().email().label('Email').required(),
-        code: yup.string().min(6).label('Verification Code').required()
+        activate_code: yup.string().min(5).label('Verification Code').required()
       }),
     []
   )
@@ -27,7 +27,7 @@ const ActivateCode = (props: ActivateCodeProps) => {
   const [loading, setLoading] = useState(false)
 
   const form = useForm<IForm.ActivateCode>({
-    initialValues: { email: '', code: '' },
+    initialValues: { email: '', activate_code: '' },
     validate: yupResolver(schema)
   })
 
@@ -38,7 +38,7 @@ const ActivateCode = (props: ActivateCodeProps) => {
 
       success('Verify successful')
 
-      navigate('/auth/update-password')
+      navigate('/auth/login')
     } catch (err: any) {
       console.error('Error:', err)
     } finally {
@@ -52,14 +52,14 @@ const ActivateCode = (props: ActivateCodeProps) => {
         <img style={{ width: '500px' }} src={LoginImg} alt="Img" />
         <Box bg="white" p="xl" sx={{ boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px', border: '1px solid none', borderRadius: '10px' }}>
           <form onSubmit={form.onSubmit(onSubmit)}>
-            <h3 style={{ textAlign: 'center', color: "color: '#3c0452" }}>Verify Code</h3>
+            <h3 style={{ textAlign: 'center', color: '#3c0452' }}>Activate Code</h3>
             <Text color="#22042e" style={{ textAlign: 'center' }}>
               We send code to your Email, check your inbox.
             </Text>
             <hr />
             <Flex w="350px" p="lg" direction="column" gap={15}>
               <InputBase placeholder="Email" label="Email" {...form.getInputProps('email')} />
-              <InputBase placeholder="Activate Code" label="Activate Code" {...form.getInputProps('code')} />
+              <InputBase placeholder="Activate Code" label="Activate Code" {...form.getInputProps('activate_code')} />
               <Button
                 sx={{ margin: 'auto', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px' }}
                 bg="#A76AE4"
@@ -69,7 +69,7 @@ const ActivateCode = (props: ActivateCodeProps) => {
                 loading={loading}
                 type="submit"
               >
-                Verify Code
+                Activate Code
               </Button>
               <p onClick={() => navigate('/auth/login')} style={{ color: '#7D7D7D', cursor: 'pointer', alignSelf: 'center' }}>
                 <IoArrowBackSharp /> Back to <span style={{ color: '#000' }}>Login</span>

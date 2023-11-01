@@ -37,11 +37,9 @@ const Register = (props: RegisterProps) => {
       setLoading(true)
       const { data } = await Api.Register(values)
 
-      console.log(data)
-
       console.log(values)
       success('Register successful')
-      navigate('/auth/login')
+      navigate('/auth/activate-code')
     } catch (err: any) {
       console.log('ERR', err)
     } finally {
@@ -62,11 +60,11 @@ const Register = (props: RegisterProps) => {
             <Box bg="white" p="md" sx={{ borderRadius: '15px' }}>
               <Box w="320px" p="sm">
                 <p onClick={() => navigate('/')} style={{ color: '#7D7D7D', cursor: 'pointer', alignSelf: 'center' }}>
-                  <IoArrowBackSharp /> Back to <span style={{ color: '#000' }}>Login</span>
+                  <IoArrowBackSharp /> Back to <span style={{ color: '#000' }}>Home</span>
                 </p>
                 <h4 style={{ textAlign: 'center', color: '#3c0452' }}>Create an Account</h4>
                 <Text color="#22042e" style={{ textAlign: 'center' }}>
-                  Welcome! Register to access the Quzz.
+                  Welcome! Register to access the Quiz.
                 </Text>
               </Box>
               <hr />

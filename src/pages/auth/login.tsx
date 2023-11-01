@@ -22,7 +22,7 @@ const Login = (props: LoginProps) => {
   const schema = useMemo(
     () =>
       yup.object({
-        username: yup.string().email().min(5).label('Username').required(),
+        username: yup.string().min(5).label('Username').required(),
         password: yup.string().min(5).label('Password').required()
       }),
     []
@@ -40,19 +40,18 @@ const Login = (props: LoginProps) => {
       setLoading(true)
       const { data } = await Api.Login(values)
 
+      navigate('/category')
+
       success('Login successful')
 
       const tokens = {
-        refresh: data.refresh
+        refresh: data.refresh,
+        access: data.access
       }
 
       setSession(tokens)
 
       methods.login(data.user)
-
-      console.log(tokens)
-
-      navigate('/')
     } catch (err: any) {
       console.log('ERR', err)
     } finally {
@@ -68,18 +67,18 @@ const Login = (props: LoginProps) => {
           <form onSubmit={form.onSubmit(onSubmit)}>
             <Box bg="white" p="xl" sx={{ boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px', border: '1px solid none', borderRadius: '10px' }}>
               <p onClick={() => navigate('/')} style={{ color: '#7D7D7D', cursor: 'pointer', alignSelf: 'center' }}>
-                <IoArrowBackSharp /> Back to <span style={{ color: '#000' }}>Login</span>
+                <IoArrowBackSharp /> Back to <span style={{ color: '#000' }}>Home</span>
               </p>
               <Box w="320px" p="sm" sx={{ borderRadius: '10px' }}>
                 <h4 style={{ textAlign: 'center', color: '#3c0452' }}>Login to Your Account</h4>
                 <Text color="#22042e" style={{ textAlign: 'center' }}>
-                  Welcome back! Login to access the Quzz App.
+                  Welcome back! Login to access the Quiz.
                 </Text>
               </Box>
 
               <hr />
               <Flex w="320px" p="lg" justify="center" direction="column" gap={15}>
-                <InputBase placeholder="Email" label="Email" {...form.getInputProps('username')} />
+                <InputBase placeholder="Username" label="Username" {...form.getInputProps('username')} />
                 <PasswordInput placeholder="Password" label="Password" {...form.getInputProps('password')} /> <br />
                 <Button
                   sx={{ margin: 'auto', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px' }}

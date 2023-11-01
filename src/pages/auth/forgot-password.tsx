@@ -31,11 +31,10 @@ const ForgotPassword = (props: ForgotPasswordProps) => {
   const onSubmit = async (values: IForm.ForgotPassword) => {
     try {
       setLoading(true)
-      console.log('Forgot Password', values)
 
       await Api.ForgotPassword(values)
 
-      navigate('/auth/activate-code')
+      navigate('/auth/reset-password-confirm')
     } catch (err: any) {
       console.error('Error:', err)
     } finally {

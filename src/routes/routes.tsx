@@ -16,14 +16,15 @@ const Routes = () => {
         <Route path="register" element={<Auth.Register />} />
         <Route path="forgot-password" element={<Auth.ForgotPassword />} />
         <Route path="activate-code" element={<Auth.ActivateCode />} />
+        <Route path="reset-password-confirm" element={<Auth.ResetPasswordConfirm />} />
         <Route index path="*" element={<Navigate to="/auth/login" />} />
       </Route>
 
-      <Route path="" element={<Main.Category />} />
+      <Route path="category" element={<Main.Category />} />
       <Route path="quizzes/:categoryId" element={<Main.Quiz />} />
       <Route path="aboutUs" element={<Main.AboutUs />} />
       <Route path="feedBack" element={<Main.GetInTouch />} />
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<Navigate to="/category" />} />
     </Switch>
   )
 }
