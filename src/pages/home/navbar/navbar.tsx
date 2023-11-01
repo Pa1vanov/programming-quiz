@@ -28,8 +28,8 @@ const Navbar = (props: NavbarProps) => {
           </Link>
         </Flex>
         <Flex align="center" gap={30}>
-          <Button>Login</Button>
-          <Button>Register</Button>
+          <Button onClick={() => navigate('/auth/login')}>Login</Button>
+          <Button onClick={() => navigate('/auth/register')}>Register</Button>
         </Flex>
       </Flex>
     </Box>

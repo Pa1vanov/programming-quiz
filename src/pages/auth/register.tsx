@@ -4,6 +4,7 @@ import { Box, Button, Flex, InputBase, PasswordInput, Text } from '@mantine/core
 import { useForm, yupResolver } from '@mantine/form'
 import { Api } from 'modules/auth'
 import { IForm } from 'modules/auth/types'
+import { IoArrowBackSharp } from 'react-icons/io5'
 import * as yup from 'yup'
 
 import { success } from '../../utils/alert'
@@ -60,6 +61,9 @@ const Register = (props: RegisterProps) => {
           <form onSubmit={form.onSubmit(onSubmit)}>
             <Box bg="white" p="md" sx={{ borderRadius: '15px' }}>
               <Box w="320px" p="sm">
+                <p onClick={() => navigate('/')} style={{ color: '#7D7D7D', cursor: 'pointer', alignSelf: 'center' }}>
+                  <IoArrowBackSharp /> Back to <span style={{ color: '#000' }}>Login</span>
+                </p>
                 <h4 style={{ textAlign: 'center', color: '#3c0452' }}>Create an Account</h4>
                 <Text color="#22042e" style={{ textAlign: 'center' }}>
                   Welcome! Register to access the Quzz.
