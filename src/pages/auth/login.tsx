@@ -4,12 +4,11 @@ import { Box, Button, Flex, InputBase, PasswordInput, Text } from '@mantine/core
 import { useForm, yupResolver } from '@mantine/form'
 import { Api } from 'modules/auth'
 import { useAuth } from 'modules/auth/context'
-import { IForm } from 'modules/auth/types'
+import { IEntity, IForm } from 'modules/auth/types'
 import { IoArrowBackSharp } from 'react-icons/io5'
 import { setSession } from 'services'
+import { success } from 'utils/alert'
 import * as yup from 'yup'
-
-import { success } from '../../utils/alert'
 
 import LoginImg from '../../assets/img/Login-amico.png'
 
@@ -19,6 +18,7 @@ interface LoginProps {}
 
 const Login = (props: LoginProps) => {
   const { methods } = useAuth()
+  const navigate = useNavigate()
   const schema = useMemo(
     () =>
       yup.object({
@@ -27,7 +27,6 @@ const Login = (props: LoginProps) => {
       }),
     []
   )
-  const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
 
   const form = useForm<IForm.Login>({
@@ -40,18 +39,20 @@ const Login = (props: LoginProps) => {
       setLoading(true)
       const { data } = await Api.Login(values)
 
-      navigate('/category')
+      success('Login Successful')
 
-      success('Login successful')
-
-      const tokens = {
-        refresh: data.refresh,
-        access: data.access
+      const tokens: IEntity.Tokens = {
+        access: data.access,
+        refresh: data.refresh
       }
 
       setSession(tokens)
 
-      methods.login(data.user)
+      const { data: user } = await Api.Profile()
+
+      methods.login(user)
+
+      navigate('/category')
     } catch (err: any) {
       console.log('ERR', err)
     } finally {
