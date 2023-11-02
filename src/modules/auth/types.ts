@@ -79,7 +79,6 @@ export namespace IApi {
 export namespace IContext {
   export interface Auth {
     user: IEntity.User | null
-    isLoading: boolean
     isAuthenticated: boolean
     methods: {
       login: (user: IEntity.User) => void

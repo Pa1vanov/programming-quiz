@@ -50,6 +50,8 @@ const Login = (props: LoginProps) => {
 
       const { data: user } = await Api.Profile()
 
+      console.log(user)
+
       methods.login(user)
 
       navigate('/category')

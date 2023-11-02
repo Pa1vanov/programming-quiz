@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { Box, Button, Flex } from '@mantine/core'
-import { IconUserCircle } from '@tabler/icons-react'
+import { Box, Button, Flex, Menu } from '@mantine/core'
+import { IconLogout, IconUserCircle } from '@tabler/icons-react'
 import { useAuth } from 'modules/auth/context'
 
 import img1 from 'assets/img/logo.png'
@@ -11,7 +11,7 @@ interface NavbarProps {}
 
 const Navbar = (props: NavbarProps) => {
   const navigate = useNavigate()
-  const { user } = useAuth()
+  const { user, methods } = useAuth()
 
   return (
     <Box className="imgBg">
@@ -29,7 +29,26 @@ const Navbar = (props: NavbarProps) => {
           </Link>
         </Flex>
         <Flex align="center" justify="center" gap={30}>
-          {user ? <IconUserCircle /> : <Button onClick={() => navigate('/auth/login')}>Login</Button>}
+          {user ? (
+            <Menu shadow="md" width={200}>
+              <Menu.Target>
+                <Button variant="transparent">
+                  <IconUserCircle color="white" width="35px" height="35px" />
+                </Button>
+              </Menu.Target>
+
+              <Menu.Dropdown>
+                <Menu.Item color="red" onClick={methods.logout}>
+                  <Flex align="center" justify="center" gap="20px">
+                    <IconLogout />
+                    Log Out
+                  </Flex>
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>
+          ) : (
+            <Button onClick={() => navigate('/auth/login')}>Login</Button>
+          )}
         </Flex>
       </Flex>
     </Box>
