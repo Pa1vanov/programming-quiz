@@ -20,7 +20,7 @@ function Card({ id, title, image, description }: ICard) {
   return (
     <div key={id} className="nft">
       <div className="main">
-        <img className="tokenImage" src={image} alt="logo" />
+        {image && <img className="tokenImage" src={image} alt={title} />}
         <h2>{title}</h2>
         <p className="description">{description}</p>
         <div className="tokenInfo">

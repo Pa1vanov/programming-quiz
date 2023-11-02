@@ -12,3 +12,5 @@ export const ForgotPassword: RequestFn<IApi.ForgotPassword.Request, IApi.ForgotP
 
 export const ResetPasswordConfirm: RequestFn<IApi.ResetPasswordConfirm.Request, IApi.ResetPasswordConfirm.Response> = data =>
   http.post('/users/reset-password-confirm', data)
+
+export const Profile = () => http.get<IApi.Profile.Response>('/users/getme')

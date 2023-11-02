@@ -9,7 +9,7 @@ import * as yup from 'yup'
 
 import { Footer } from 'components'
 
-import bg from 'assets/img/bg.svg'
+// import bg from 'assets/img/bg.svg'
 import img1 from 'assets/img/Mention-amico.png'
 
 import Navbar from '../navbar/navbar'
@@ -56,7 +56,10 @@ export default function GetInTouch() {
       <Paper shadow="md" radius="lg">
         <Flex justify="center">
           <div className={classes.wrapper}>
-            <div className={classes.contacts} style={{ backgroundImage: `url(${bg})` }}>
+            <div
+              className={classes.contacts}
+              //  style={{ backgroundImage: `url(${bg})` }}
+            >
               <Image className={classes.title} src={img1} />
 
               <ContactIconsList />

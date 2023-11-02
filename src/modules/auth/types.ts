@@ -1,6 +1,9 @@
 export namespace IEntity {
   export interface User {
+    id: number
     full_name: string
+    username: string
+    email: string
   }
 
   export interface Tokens {
@@ -43,9 +46,8 @@ export namespace IApi {
   export namespace Login {
     export interface Request extends IForm.Login {}
     export interface Response {
-      refresh: any
-      access: any
-      user: IEntity.User
+      refresh: string
+      access: string
     }
   }
 
@@ -67,6 +69,10 @@ export namespace IApi {
   export namespace ResetPasswordConfirm {
     export interface Request extends IForm.ResetPasswordConfirm {}
     export interface Response {}
+  }
+  export namespace Profile {
+    export interface Request {}
+    export interface Response extends IEntity.User {}
   }
 }
 

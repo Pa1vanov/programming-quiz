@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { Box, Button, Flex } from '@mantine/core'
+import { IconUserCircle } from '@tabler/icons-react'
 import { useAuth } from 'modules/auth/context'
 
 import img1 from 'assets/img/logo.png'
@@ -10,7 +11,7 @@ interface NavbarProps {}
 
 const Navbar = (props: NavbarProps) => {
   const navigate = useNavigate()
-  const { methods } = useAuth()
+  const { user } = useAuth()
 
   return (
     <Box className="imgBg">
@@ -27,9 +28,8 @@ const Navbar = (props: NavbarProps) => {
             Feed Back
           </Link>
         </Flex>
-        <Flex align="center" gap={30}>
-          <Button onClick={() => navigate('/auth/login')}>Login</Button>
-          <Button onClick={() => navigate('/auth/register')}>Register</Button>
+        <Flex align="center" justify="center" gap={30}>
+          {user ? <IconUserCircle /> : <Button onClick={() => navigate('/auth/login')}>Login</Button>}
         </Flex>
       </Flex>
     </Box>
