@@ -5,12 +5,11 @@ import { Button } from '@mantine/core'
 import './card.scss'
 
 interface ICard {
-  id: string
+  id: number
   title: string
-  image: string
   description: string
 }
-function Card({ id, title, image, description }: ICard) {
+function Card({ id, title, description }: ICard) {
   const navigate = useNavigate()
 
   const handleTryClick = () => {
@@ -20,7 +19,6 @@ function Card({ id, title, image, description }: ICard) {
   return (
     <div key={id} className="nft">
       <div className="main">
-        <img className="tokenImage" src={image} alt="logo" />
         <h2>{title}</h2>
         <p className="description">{description}</p>
         <div className="tokenInfo">

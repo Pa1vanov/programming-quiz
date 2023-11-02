@@ -12,9 +12,9 @@ const http = axios.create({
 
       if (data.status === 'ERROR') notifications.show({ message: `${data.message}`, color: 'red' })
 
-      if (data.status === 'SUCCESS') return data.data
+      if (data.status === 'SUCCESS') return data
 
-      return data.data
+      return data
     }
   ]
 })
