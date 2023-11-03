@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@mantine/core'
+import { useAuth } from 'modules/auth/context'
 
 import './card.scss'
 
@@ -13,8 +14,14 @@ interface ICard {
 function Card({ id, image, title, description }: ICard) {
   const navigate = useNavigate()
 
+  const { user } = useAuth()
+
   const handleTryClick = () => {
-    navigate(`/quizzes/${id}`)
+    if (user) {
+      navigate(`/quizzes/${id}`)
+    } else {
+      navigate(`/auth/login`)
+    }
   }
 
   return (

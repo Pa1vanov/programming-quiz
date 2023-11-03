@@ -45,6 +45,7 @@ const categoriesImg: Category[] = [
 
 const QuizAppCategoryPage: React.FC = () => {
   const [categories, setCategories] = useState<any>([])
+
   const categoryImageUrls: any = {
     Go: 'https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png',
     Python: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Python_logo_01.svg/1200px-Python_logo_01.svg.png',

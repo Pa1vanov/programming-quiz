@@ -4,6 +4,15 @@ export namespace IEntity {
     title: string
     description: string
   }
+  export interface Question {
+    id: number
+    question: string
+    answer: Answer[]
+  }
+  export interface Answer {
+    id: number
+    answer: string
+  }
 }
 
 export namespace IApi {
@@ -13,10 +22,17 @@ export namespace IApi {
       categories: IEntity.Category[]
     }
   }
-
   export namespace Feed {
     export interface Request extends IForm.Feed {}
     export interface Response {}
+  }
+  export namespace Question {
+    export interface Request {
+      id: number
+    }
+    export interface Response {
+      questions: IEntity.Question[]
+    }
   }
 }
 
@@ -26,5 +42,11 @@ export namespace IForm {
     email: string
     phone: string
     message: string
+  }
+}
+
+export namespace IQuery {
+  export interface Questions {
+    question: IEntity.Question[]
   }
 }
