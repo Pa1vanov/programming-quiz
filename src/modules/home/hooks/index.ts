@@ -1,1 +1,0 @@
-export { useQuestion } from './useQuestions'

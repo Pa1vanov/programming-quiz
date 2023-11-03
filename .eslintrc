@@ -14,6 +14,7 @@
     }
   },
   "rules": {
+    "react/no-array-index-key": "off",
     "react/state-in-constructor": "off",
     "no-restricted-syntax": "off",
     "no-underscore-dangle": "off",
