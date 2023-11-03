@@ -1,9 +1,10 @@
 .nft {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   user-select: none;
-  max-width: 300px;
-  margin: 5rem auto;
+  width: 300px;
+  margin: 10px;
   //border: 1px solid #ffffff22;
   background-color: #282c34;
   background: linear-gradient(0deg, #660067 0%, #a76ae4 100%);
@@ -14,37 +15,24 @@
   overflow: hidden;
   transition: 0.5s all;
   .main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
+    display: grid;
+    place-items: center;
+    width: 280px;
     padding: 1rem;
 
     h2 {
       color: #fff;
-      margin-top: 0.5rem;
+      margin-top: 10px;
     }
     .tokenImage {
+      flex: 1;
       border-radius: 0.5rem;
-      max-width: 100%;
-      height: 250px;
+      width: 250px;
       object-fit: cover;
     }
     .description {
       text-align: center;
-      margin: 0.5rem 0;
       color: #fff;
-    }
-    .tokenInfo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .duration {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
     }
   }
   ::before {
