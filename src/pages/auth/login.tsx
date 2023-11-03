@@ -17,7 +17,7 @@ import './login.css'
 interface LoginProps {}
 
 const Login = (props: LoginProps) => {
-  const { methods } = useAuth()
+  const { methods, user } = useAuth()
   const navigate = useNavigate()
   const schema = useMemo(
     () =>
@@ -69,9 +69,13 @@ const Login = (props: LoginProps) => {
         <Flex h="100vh" align="center" justify="center">
           <form onSubmit={form.onSubmit(onSubmit)}>
             <Box bg="white" p="xl" sx={{ boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px', border: '1px solid none', borderRadius: '10px' }}>
-              <p onClick={() => navigate('/')} style={{ color: '#7D7D7D', cursor: 'pointer', alignSelf: 'center' }}>
-                <IoArrowBackSharp /> Back to <span style={{ color: '#000' }}>Home</span>
-              </p>
+              {!user ? (
+                <p onClick={() => navigate('/')} style={{ color: '#7D7D7D', cursor: 'pointer', alignSelf: 'center' }}>
+                  <IoArrowBackSharp /> Back to <span style={{ color: '#000' }}>Home</span>
+                </p>
+              ) : (
+                ''
+              )}
               <Box w="320px" p="sm" sx={{ borderRadius: '10px' }}>
                 <h4 style={{ textAlign: 'center', color: '#3c0452' }}>Login to Your Account</h4>
                 <Text color="#22042e" style={{ textAlign: 'center' }}>

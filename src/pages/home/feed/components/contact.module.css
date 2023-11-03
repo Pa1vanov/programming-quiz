@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   align-items: center;
-  color: #fff;
+  color: #000;
 }
 
 .icon {
@@ -10,9 +10,9 @@
 }
 
 .title {
-  color: #e7f5ff;
+  color: #000;
 }
 
 .description {
-  color: #fff;
+  color: #000;
 }

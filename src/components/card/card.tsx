@@ -10,6 +10,7 @@ interface ICard {
   image: string
   description: string
 }
+
 function Card({ id, image, title, description }: ICard) {
   const navigate = useNavigate()
 
