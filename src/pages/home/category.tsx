@@ -9,40 +9,6 @@ import Navbar from './navbar/navbar'
 
 interface Category {}
 
-const categoriesImg: Category[] = [
-  {
-    id: 'python',
-
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Python_logo_01.svg/1200px-Python_logo_01.svg.png'
-  },
-  {
-    id: 'javascript',
-
-    image: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png'
-  },
-  {
-    id: 'c#',
-
-    image: 'https://crystalpng.com/wp-content/uploads/2023/02/C-Sharp-logo.png'
-  },
-  {
-    id: 'flutter',
-
-    image: 'https://web-strapi.mrmilu.com/uploads/flutter_logo_470e9f7491.png'
-  },
-  {
-    id: '.net',
-
-    image:
-      'https://www.ibm.com/content/dam/adobe-cms/instana/media_logo/dotnetCore.component.complex-narrative-xl.ts=1690481702068.png/content/adobe-cms/us/en/products/instana/supported-technologies/dotnet-core-monitoring/_jcr_content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/logoimage'
-  },
-  {
-    id: 'go',
-
-    image: 'https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png'
-  }
-]
-
 const QuizAppCategoryPage: React.FC = () => {
   const [categories, setCategories] = useState<any>([])
 

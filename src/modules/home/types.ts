@@ -46,6 +46,22 @@ export namespace IApi {
       ]
     }
   }
+  export namespace Answer {
+    export interface Request {
+      category: number
+      answers: [
+        {
+          question_id: number
+          answer_id: number
+        }
+      ]
+    }
+
+    export interface Response {
+      is_correct: number
+      count: number
+    }
+  }
 }
 
 export namespace IForm {

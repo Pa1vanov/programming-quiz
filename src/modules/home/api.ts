@@ -7,3 +7,5 @@ export const GetCategory: RequestFn<IApi.Categories.Request, IApi.Categories.Res
 export const Feed: RequestFn<IApi.Feed.Request, IApi.Feed.Response> = data => http.post('/quizes/send_mail', data)
 
 export const Question: RequestFn<IApi.Question.Request, IApi.Question.Response> = categoryId => http.get(`/quizes/category/${categoryId}`)
+
+// export const Answer: any = (data: any) => http.get('/quizes/answer', data)
