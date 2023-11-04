@@ -7,7 +7,7 @@ import { IForm } from 'modules/auth/types'
 import { IoArrowBackSharp } from 'react-icons/io5'
 import * as yup from 'yup'
 
-import { success } from '../../utils/alert'
+import { error, success } from '../../utils/alert'
 
 import LoginImg from '../../assets/img/Login-amico.png'
 
@@ -40,7 +40,7 @@ const ActivateCode = (props: ActivateCodeProps) => {
 
       navigate('/auth/login')
     } catch (err: any) {
-      console.error('Error:', err)
+      error(`${err}`)
     } finally {
       setLoading(false)
     }

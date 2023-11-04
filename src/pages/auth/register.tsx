@@ -6,7 +6,7 @@ import { Api } from 'modules/auth'
 import { IForm } from 'modules/auth/types'
 import * as yup from 'yup'
 
-import { success } from '../../utils/alert'
+import { error, success } from '../../utils/alert'
 
 import LoginImg from '../../assets/img/Login-amico.png'
 
@@ -36,11 +36,10 @@ const Register = (props: RegisterProps) => {
       setLoading(true)
       const { data } = await Api.Register(values)
 
-      console.log(values)
       success('Register successful')
       navigate('/auth/activate-code')
     } catch (err: any) {
-      console.log('ERR', err)
+      error(`${err}`)
     } finally {
       setLoading(false)
     }

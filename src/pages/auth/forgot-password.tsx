@@ -5,6 +5,7 @@ import { useForm, yupResolver } from '@mantine/form'
 import { Api } from 'modules/auth'
 import { IForm } from 'modules/auth/types'
 import { IoArrowBackSharp } from 'react-icons/io5'
+import { error } from 'utils/alert'
 import * as yup from 'yup'
 
 import LoginImg from '../../assets/img/Login-amico.png'
@@ -36,7 +37,7 @@ const ForgotPassword = (props: ForgotPasswordProps) => {
 
       navigate('/auth/reset-password-confirm')
     } catch (err: any) {
-      console.error('Error:', err)
+      error(`${err}`)
     } finally {
       setLoading(false)
     }
