@@ -7,7 +7,7 @@ import { useAuth } from 'modules/auth/context'
 import { IEntity, IForm } from 'modules/auth/types'
 import { IoArrowBackSharp } from 'react-icons/io5'
 import { setSession } from 'services'
-import { success } from 'utils/alert'
+import { error, success } from 'utils/alert'
 import * as yup from 'yup'
 
 import LoginImg from '../../assets/img/Login-amico.png'
@@ -56,7 +56,7 @@ const Login = (props: LoginProps) => {
 
       navigate('/category')
     } catch (err: any) {
-      console.log('ERR', err)
+      error(`${err}`)
     } finally {
       setLoading(false)
     }
