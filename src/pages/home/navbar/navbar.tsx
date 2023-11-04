@@ -1,9 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { Box, Button, Flex, Menu } from '@mantine/core'
+import { Box, Button, Flex, Menu, Title } from '@mantine/core'
 import { IconLogout, IconUserCircle } from '@tabler/icons-react'
 import { useAuth } from 'modules/auth/context'
-
-import img1 from 'assets/img/logo.png'
 
 import './nav.css'
 
@@ -16,7 +14,19 @@ const Navbar = (props: NavbarProps) => {
   return (
     <Box className="imgBg">
       <Flex p="50px 50px" h="120px" align="center" justify="space-between" bg="#A76AE4">
-        <img src={img1} width="50px" height="50px" alt="Logo" />
+        <Flex
+          onClick={() => navigate('/category')}
+          align="center"
+          p="md"
+          bg="#fff"
+          gap="5px"
+          sx={{ border: '1px solid #fff', borderRadius: '100px', cursor: 'pointer' }}
+        >
+          <Button color="grape" radius="xl">
+            QUIZ
+          </Button>
+          <Title size="md">APP</Title>
+        </Flex>
         <Flex gap={40}>
           <Link className="navLinks" to="/category">
             Home
@@ -47,7 +57,9 @@ const Navbar = (props: NavbarProps) => {
               </Menu.Dropdown>
             </Menu>
           ) : (
-            <Button onClick={() => navigate('/auth/login')}>Login</Button>
+            <Button className="buttonLogin" bg="white" size="md" sx={{ color: 'black' }} onClick={() => navigate('/auth/login')}>
+              Login
+            </Button>
           )}
         </Flex>
       </Flex>

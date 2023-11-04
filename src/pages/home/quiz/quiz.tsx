@@ -127,7 +127,7 @@ const QuizCategoryPage: React.FC = () => {
                       <Button
                         variant="transparent"
                         bg="white"
-                        w="450px"
+                        w="453px"
                         h="50px"
                         mt="md"
                         disabled={isEnd}
@@ -145,7 +145,7 @@ const QuizCategoryPage: React.FC = () => {
                         }}
                         onClick={() => handleSubmit(item.id)}
                       >
-                        <Badge mr="10px" size="md" color="grape">
+                        <Badge mr="5px" size="md" color="grape">
                           {`${index + 1} `}
                         </Badge>
                         <Text w="inherit" align="center">

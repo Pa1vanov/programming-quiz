@@ -95,7 +95,7 @@ export default function GetInTouch() {
                 />
 
                 <Group align="flex-end" mt="md">
-                  <Button type="submit" loading={loading} className={classes.control}>
+                  <Button type="submit" color="grape" loading={loading} className={classes.control}>
                     Send message
                   </Button>
                 </Group>
