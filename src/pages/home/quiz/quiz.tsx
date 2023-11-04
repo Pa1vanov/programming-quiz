@@ -101,12 +101,12 @@ const QuizCategoryPage: React.FC = () => {
                 borderRadius: '20px',
                 boxShadow: 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px'
               }}
-              w="380px"
+              w="480px"
               key={state?.questions[0].id}
-              p="lg"
+              p="md"
               bg="white"
             >
-              <Box p="sm" sx={{ display: 'grid', placeItems: 'center' }}>
+              <Box p="lg" sx={{ display: 'grid', placeItems: 'center' }}>
                 <Title>Question </Title>
                 <Text align="center" mt="20px" size="xl">
                   {state?.questions[count].question}
@@ -117,41 +117,45 @@ const QuizCategoryPage: React.FC = () => {
               <div>
                 {state?.questions[count].answer.map((item, index) => (
                   <Box key={index} sx={{ display: 'grid' }}>
-                    <Button
-                      variant="transparent"
-                      p="15px"
-                      bg="white"
-                      w="350px"
-                      h="60px"
-                      mt="md"
-                      disabled={isEnd}
-                      sx={{
-                        userSelect: 'none',
-                        cursor: 'pointer',
-                        color: ' #22042e',
-                        borderRadius: '10px',
-                        boxShadow: '#E0E0E0 0px 6px 9px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'flex-start',
-                        overflowWrap: 'break-word',
-                        fontSize: '11px',
-                        fontWeight: 'bold'
-                      }}
-                      onClick={() => handleSubmit(item.id)}
-                    >
-                      {`${index + 1}. ${item.answer}`}
-                    </Button>
+                    <Flex align="center" justify="flex-start">
+                      <Button
+                        variant="transparent"
+                        bg="white"
+                        w="450px"
+                        h="50px"
+                        mt="md"
+                        disabled={isEnd}
+                        sx={{
+                          userSelect: 'none',
+                          cursor: 'pointer',
+                          color: ' #22042e',
+                          borderRadius: '10px',
+                          boxShadow: '#E0E0E0 0px 6px 9px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'flex-start',
+                          gap: '5px',
+                          fontSize: '11px',
+                          fontWeight: 'bold'
+                        }}
+                        onClick={() => handleSubmit(item.id)}
+                      >
+                        <Badge size="md" color="grape">
+                          {`${index + 1} `}
+                        </Badge>
+                        <Text align="center">{item.answer}</Text>
+                      </Button>
+                    </Flex>
                   </Box>
                 ))}
                 <br />
                 <hr />
                 <Flex align="center" justify="space-between">
-                  <Button w="140px" sx={{ borderRadius: '30px' }} onClick={() => handleSendDataAndOpen()} color="grape" variant="filled">
+                  <Button w="155px" sx={{ borderRadius: '30px' }} onClick={() => handleSendDataAndOpen()} color="grape" variant="filled">
                     Finish Test
                   </Button>
                   <Button
-                    w="140px"
+                    w="155px"
                     sx={{ borderRadius: '30px' }}
                     onClick={() => handleSendDataAndOpen()}
                     disabled={!isEnd}
