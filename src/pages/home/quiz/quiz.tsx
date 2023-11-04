@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Box, Button, Flex, Overlay, Text, Title } from '@mantine/core'
+import { Badge, Box, Button, Flex, Overlay, Text, Title } from '@mantine/core'
 import { IconArrowLeft } from '@tabler/icons-react'
 import { Api, Types } from 'modules/home'
 import { http } from 'services'
@@ -45,7 +45,6 @@ const QuizCategoryPage: React.FC = () => {
       const response = await http.post('/quizes/answer', ans)
 
       setCorrect(response.data.is_correct)
-
       console.log(response.data.is_correct)
     } catch (error) {
       console.error('Error sending data to the backend:', error)
@@ -75,17 +74,18 @@ const QuizCategoryPage: React.FC = () => {
   return (
     <>
       {visible && (
-        <Overlay color="#000" blur={80}>
-          <Flex w="100%" h="100%" direction="column" align="center" justify="center">
-            <Title color="white" size="150px">
-              You Scored
-            </Title>
-            <Text color="white" size="100px">
-              {correct} /{state && state.questions.length}
-            </Text>
-            <Button onClick={() => navigate('/category')} leftIcon={<IconArrowLeft size={14} />} variant="filled" color="grape">
-              Back Home
-            </Button>
+        <Overlay color="#000" blur={30}>
+          <Flex w="100%" h="100vh" direction="column" align="center" justify="center">
+            <Box bg="white" p="xl" sx={{ display: 'grid', placeItems: 'center', borderRadius: '10px' }}>
+              <Title>You Scored</Title> <br />
+              <Badge size="xl" w="100px">
+                {correct} / {state && state.questions.length}
+              </Badge>{' '}
+              <br />
+              <Button onClick={() => navigate('/category')} leftIcon={<IconArrowLeft size={14} />} variant="filled" color="grape">
+                Back Home
+              </Button>
+            </Box>
           </Flex>
         </Overlay>
       )}
@@ -101,14 +101,14 @@ const QuizCategoryPage: React.FC = () => {
                 borderRadius: '20px',
                 boxShadow: 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px'
               }}
-              w="350px"
+              w="380px"
               key={state?.questions[0].id}
               p="lg"
               bg="white"
             >
               <Box p="sm" sx={{ display: 'grid', placeItems: 'center' }}>
                 <Title>Question </Title>
-                <Text mt="20px" size="xl" fs="italic">
+                <Text align="center" mt="20px" size="xl">
                   {state?.questions[count].question}
                 </Text>
               </Box>
@@ -119,12 +119,11 @@ const QuizCategoryPage: React.FC = () => {
                   <Box key={index} sx={{ display: 'grid' }}>
                     <Button
                       variant="transparent"
-                      p="20px"
+                      p="15px"
                       bg="white"
-                      w="310px"
+                      w="350px"
                       h="60px"
                       mt="md"
-                      fullWidth
                       disabled={isEnd}
                       sx={{
                         userSelect: 'none',
@@ -134,7 +133,10 @@ const QuizCategoryPage: React.FC = () => {
                         boxShadow: '#E0E0E0 0px 6px 9px',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'flex-start'
+                        justifyContent: 'flex-start',
+                        overflowWrap: 'break-word',
+                        fontSize: '11px',
+                        fontWeight: 'bold'
                       }}
                       onClick={() => handleSubmit(item.id)}
                     >
@@ -145,7 +147,7 @@ const QuizCategoryPage: React.FC = () => {
                 <br />
                 <hr />
                 <Flex align="center" justify="space-between">
-                  <Button w="140px" sx={{ borderRadius: '30px' }} onClick={() => handleSendDataAndOpen()} color="green" variant="filled">
+                  <Button w="140px" sx={{ borderRadius: '30px' }} onClick={() => handleSendDataAndOpen()} color="grape" variant="filled">
                     Finish Test
                   </Button>
                   <Button
