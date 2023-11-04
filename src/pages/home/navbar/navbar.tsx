@@ -18,13 +18,13 @@ const Navbar = (props: NavbarProps) => {
       <Flex p="50px 50px" h="120px" align="center" justify="space-between" bg="#A76AE4">
         <img src={img1} width="50px" height="50px" alt="Logo" />
         <Flex gap={40}>
-          <Link style={{ textDecoration: 'none', color: 'white', fontSize: '18px', fontWeight: 'bold' }} to="/category">
+          <Link className="navLinks" to="/category">
             Home
           </Link>
-          <Link style={{ textDecoration: 'none', color: 'white', fontSize: '18px', fontWeight: 'bold' }} to="/aboutUs">
+          <Link className="navLinks" to="/aboutUs">
             About Us
           </Link>
-          <Link style={{ textDecoration: 'none', color: 'white', fontSize: '18px', fontWeight: 'bold' }} to="/feedBack">
+          <Link className="navLinks" to="/feedBack">
             Feed Back
           </Link>
         </Flex>

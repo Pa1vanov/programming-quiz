@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Badge, Box, Button, Flex, Overlay, Text, Title } from '@mantine/core'
+import { Badge, Box, Button, Flex, LoadingOverlay, Overlay, Text, Title } from '@mantine/core'
 import { IconArrowLeft } from '@tabler/icons-react'
 import { Api, Types } from 'modules/home'
 import { http } from 'services'
@@ -11,6 +11,8 @@ import './quiz.css'
 
 const QuizCategoryPage: React.FC = () => {
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
+  const [loading2, setLoading2] = useState(true)
   const [visible, setVisible] = useState(false)
   const [correct, setCorrect] = useState(0)
   const [state, setState] = useState<Types.IApi.Question.Response>()
@@ -45,7 +47,7 @@ const QuizCategoryPage: React.FC = () => {
       const response = await http.post('/quizes/answer', ans)
 
       setCorrect(response.data.is_correct)
-      console.log(response.data.is_correct)
+      setLoading2(false)
     } catch (error) {
       console.error('Error sending data to the backend:', error)
     }
@@ -58,6 +60,7 @@ const QuizCategoryPage: React.FC = () => {
         const { data } = await Api.Question(Cid)
 
         setState(data)
+        setLoading(false)
       } catch (err: any) {
         console.log(err)
       }
@@ -76,11 +79,12 @@ const QuizCategoryPage: React.FC = () => {
       {visible && (
         <Overlay color="#000" blur={30}>
           <Flex w="100%" h="100vh" direction="column" align="center" justify="center">
-            <Box bg="white" p="xl" sx={{ display: 'grid', placeItems: 'center', borderRadius: '10px' }}>
+            <Box bg="white" pos="relative" p="xl" sx={{ display: 'grid', placeItems: 'center', borderRadius: '10px' }}>
+              <LoadingOverlay visible={loading2} sx={{ borderRadius: '10px' }} overlayBlur={2} loaderProps={{ color: 'pink', type: 'bars' }} />
               <Title>You Scored</Title> <br />
               <Badge size="xl" w="100px">
                 {correct} / {state && state.questions.length}
-              </Badge>{' '}
+              </Badge>
               <br />
               <Button onClick={() => navigate('/category')} leftIcon={<IconArrowLeft size={14} />} variant="filled" color="grape">
                 Back Home
@@ -89,6 +93,8 @@ const QuizCategoryPage: React.FC = () => {
           </Flex>
         </Overlay>
       )}
+      <LoadingOverlay visible={loading} overlayBlur={2} loaderProps={{ color: 'pink', type: 'bars' }} />
+
       <Box>
         <Flex className="main" align="center" justify="center" wrap="wrap" gap="60px">
           <img style={{ width: '500px', height: '500px' }} src={quizzImg} alt="img" />
@@ -134,16 +140,17 @@ const QuizCategoryPage: React.FC = () => {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'flex-start',
-                          gap: '5px',
                           fontSize: '11px',
                           fontWeight: 'bold'
                         }}
                         onClick={() => handleSubmit(item.id)}
                       >
-                        <Badge size="md" color="grape">
+                        <Badge mr="10px" size="md" color="grape">
                           {`${index + 1} `}
                         </Badge>
-                        <Text align="center">{item.answer}</Text>
+                        <Text w="inherit" align="center">
+                          {item.answer}
+                        </Text>
                       </Button>
                     </Flex>
                   </Box>

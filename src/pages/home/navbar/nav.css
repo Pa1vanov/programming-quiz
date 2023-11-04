@@ -1,4 +1,19 @@
 .imgBg {
   background: #050813;
 }
-
+.navLinks {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+@media (max-width: 600px) {
+  .navLinks {
+    font-size: 15px;
+  }
+}
+@media (max-width: 500px) {
+  .navLinks {
+    font-size: 12px;
+  }
+}

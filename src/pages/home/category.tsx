@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Flex } from '@mantine/core'
+import { Flex, LoadingOverlay } from '@mantine/core'
 import { Api } from 'modules/home'
 
 import { Card, Footer } from 'components'
@@ -11,6 +11,7 @@ interface Category {}
 
 const QuizAppCategoryPage: React.FC = () => {
   const [categories, setCategories] = useState<any>([])
+  const [loading, setLoading] = useState(true)
 
   const categoryImageUrls: any = {
     Go: 'https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png',
@@ -30,6 +31,7 @@ const QuizAppCategoryPage: React.FC = () => {
         const { data } = await Api.GetCategory({})
 
         setCategories(data)
+        setLoading(false)
         console.log('RES', data)
       } catch (err: any) {
         console.log('ERR', err)
@@ -42,6 +44,8 @@ const QuizAppCategoryPage: React.FC = () => {
     <Flex className="quiz-app-category-page" direction="column" gap={20}>
       <Navbar />
       <Flex justify="center" direction="row" wrap="wrap" gap={50} p="40px">
+        <LoadingOverlay pos="relative" h="500px" visible={loading} overlayBlur={2} loaderProps={{ color: 'pink', type: 'bars' }} />
+
         {categories.map((category: any) => (
           <Card
             key={category.id}
