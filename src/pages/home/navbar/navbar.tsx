@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Box, Button, Drawer, Flex, Menu } from '@mantine/core'
+import { Box, Button, Flex, Menu } from '@mantine/core'
 import { IconLogout, IconUserCircle } from '@tabler/icons-react'
 import { useAuth } from 'modules/auth/context'
 
@@ -17,17 +17,13 @@ const Navbar = (props: NavbarProps) => {
     setDrawerOpen(true)
   }
 
-  const closeDrawer = () => {
-    setDrawerOpen(false)
-  }
-
   return (
-    <Box className="imgBg">
-      <Flex p="50px 50px" h="120px" align="center" justify="space-between" bg="#A76AE4">
+    <Box>
+      <Flex p="50px 50px" pb="75px" h="120px" align="center" justify="space-between" bg="#A76AE4">
         <Flex
           onClick={() => navigate('/category')}
           align="center"
-          p="sm"
+          p="10px"
           bg="#fff"
           gap="5px"
           sx={{ border: '1px solid #fff', borderRadius: '100px', cursor: 'pointer' }}
@@ -71,31 +67,36 @@ const Navbar = (props: NavbarProps) => {
             </Button>
           )}
         </Flex>
-        <Button className="buttonBurger" bg="white" size="md" sx={{ color: 'black' }} onClick={openDrawer}>
-          ☰
-        </Button>
-        <Drawer position="right" opened={isDrawerOpen} onClose={closeDrawer}>
-          <Flex align="center" gap="10px">
-            <Link style={{ color: 'black' }} className="navLinks" to="/category">
-              Home
-            </Link>
-            <Link style={{ color: 'black' }} className="navLinks" to="/aboutUs">
-              About Us
-            </Link>
-            <Link style={{ color: 'black' }} className="navLinks" to="/feedBack">
-              Feed Back
-            </Link>
-            {user ? (
-              <Button onClick={methods.logout} color="grape">
-                Log Out
-              </Button>
-            ) : (
-              <Button color="grape" onClick={() => navigate('/auth/login')}>
-                Login
-              </Button>
-            )}
-          </Flex>
-        </Drawer>
+        <Menu>
+          <Menu.Target>
+            <Button className="buttonBurger" size="md" sx={{ color: 'black' }} onClick={openDrawer}>
+              ☰
+            </Button>
+          </Menu.Target>
+
+          <Menu.Dropdown sx={{ background: '#A76AE4', border: 'none' }}>
+            <Flex align="center" h="30px">
+              <Link style={{ color: 'white', marginRight: '20px' }} className="navLinks" to="/category">
+                Home
+              </Link>
+              <Link style={{ color: 'white', marginRight: '20px' }} className="navLinks" to="/aboutUs">
+                About Us
+              </Link>
+              <Link style={{ color: 'white', marginRight: '20px' }} className="navLinks" to="/feedBack">
+                Feed Back
+              </Link>
+              {user ? (
+                <Button sx={{ marginRight: '40px' }} onClick={methods.logout} color="grape">
+                  Log Out
+                </Button>
+              ) : (
+                <Button sx={{ marginRight: '40px' }} color="grape" onClick={() => navigate('/auth/login')}>
+                  Login
+                </Button>
+              )}
+            </Flex>
+          </Menu.Dropdown>
+        </Menu>
       </Flex>
     </Box>
   )
