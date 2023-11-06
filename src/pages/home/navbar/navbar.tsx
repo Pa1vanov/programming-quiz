@@ -1,5 +1,6 @@
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Box, Button, Flex, Menu, Title } from '@mantine/core'
+import { Box, Button, Drawer, Flex, Menu } from '@mantine/core'
 import { IconLogout, IconUserCircle } from '@tabler/icons-react'
 import { useAuth } from 'modules/auth/context'
 
@@ -10,6 +11,15 @@ interface NavbarProps {}
 const Navbar = (props: NavbarProps) => {
   const navigate = useNavigate()
   const { user, methods } = useAuth()
+  const [isDrawerOpen, setDrawerOpen] = useState(false)
+
+  const openDrawer = () => {
+    setDrawerOpen(true)
+  }
+
+  const closeDrawer = () => {
+    setDrawerOpen(false)
+  }
 
   return (
     <Box className="imgBg">
@@ -17,7 +27,7 @@ const Navbar = (props: NavbarProps) => {
         <Flex
           onClick={() => navigate('/category')}
           align="center"
-          p="md"
+          p="sm"
           bg="#fff"
           gap="5px"
           sx={{ border: '1px solid #fff', borderRadius: '100px', cursor: 'pointer' }}
@@ -25,20 +35,19 @@ const Navbar = (props: NavbarProps) => {
           <Button color="grape" radius="xl">
             QUIZ
           </Button>
-          <Title size="md">APP</Title>
         </Flex>
-        <Flex gap={40}>
-          <Link className="navLinks" to="/category">
+        <Flex className="sections" gap={40}>
+          <Link style={{ color: 'white' }} className="navLinks" to="/category">
             Home
           </Link>
-          <Link className="navLinks" to="/aboutUs">
+          <Link style={{ color: 'white' }} className="navLinks" to="/aboutUs">
             About Us
           </Link>
-          <Link className="navLinks" to="/feedBack">
+          <Link style={{ color: 'white' }} className="navLinks" to="/feedBack">
             Feed Back
           </Link>
         </Flex>
-        <Flex align="center" justify="center" gap={30}>
+        <Flex className="sections" align="center" justify="center" gap={30}>
           {user ? (
             <Menu shadow="md" width={200}>
               <Menu.Target>
@@ -62,6 +71,31 @@ const Navbar = (props: NavbarProps) => {
             </Button>
           )}
         </Flex>
+        <Button className="buttonBurger" bg="white" size="md" sx={{ color: 'black' }} onClick={openDrawer}>
+          ☰
+        </Button>
+        <Drawer position="right" opened={isDrawerOpen} onClose={closeDrawer}>
+          <Flex align="center" gap="10px">
+            <Link style={{ color: 'black' }} className="navLinks" to="/category">
+              Home
+            </Link>
+            <Link style={{ color: 'black' }} className="navLinks" to="/aboutUs">
+              About Us
+            </Link>
+            <Link style={{ color: 'black' }} className="navLinks" to="/feedBack">
+              Feed Back
+            </Link>
+            {user ? (
+              <Button onClick={methods.logout} color="grape">
+                Log Out
+              </Button>
+            ) : (
+              <Button color="grape" onClick={() => navigate('/auth/login')}>
+                Login
+              </Button>
+            )}
+          </Flex>
+        </Drawer>
       </Flex>
     </Box>
   )

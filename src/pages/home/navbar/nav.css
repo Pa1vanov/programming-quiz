@@ -3,7 +3,6 @@
 }
 .navLinks {
   text-decoration: none;
-  color: white;
   font-size: 18px;
   font-weight: bold;
 }
@@ -12,6 +11,16 @@
   background-color: white;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
+
+.buttonBurger {
+  display: none;
+}
+
+.buttonBurger:hover {
+  background-color: white;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
 @media (max-width: 600px) {
   .navLinks {
     font-size: 15px;
@@ -20,5 +29,14 @@
 @media (max-width: 500px) {
   .navLinks {
     font-size: 12px;
+  }
+}
+
+@media (max-width: 630px) {
+  .sections {
+    display: none;
+  }
+  .buttonBurger {
+    display: flex;
   }
 }
