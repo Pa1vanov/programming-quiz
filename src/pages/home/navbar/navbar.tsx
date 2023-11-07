@@ -19,7 +19,7 @@ const Navbar = (props: NavbarProps) => {
 
   return (
     <Box>
-      <Flex p="50px 50px" pb="75px" h="120px" align="center" justify="space-between" bg="#A76AE4">
+      <Flex p="50px 50px" pb="70px" h="120px" align="center" justify="space-between" bg="#A76AE4">
         <Flex
           onClick={() => navigate('/category')}
           align="center"

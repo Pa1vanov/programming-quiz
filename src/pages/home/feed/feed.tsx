@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Button, Flex, Group, Image, InputBase, Paper, SimpleGrid, Text, Textarea, TextInput } from '@mantine/core'
+import { Button, Container, Flex, Group, Image, InputBase, Paper, SimpleGrid, Text, Textarea, TextInput } from '@mantine/core'
 import { useForm, yupResolver } from '@mantine/form'
 import { Api } from 'modules/home'
 import { IForm } from 'modules/home/types'
@@ -53,57 +53,66 @@ export default function GetInTouch() {
   return (
     <>
       <Navbar />
-      <Paper shadow="md" radius="lg">
-        <Flex justify="center">
-          <div className={classes.wrapper}>
-            <div
-              className={classes.contacts}
-              //  style={{ backgroundImage: `url(${bg})` }}
-            >
-              <Image className={classes.title} src={img1} />
+      <Container
+        fluid
+        sx={{
+          display: 'flex',
+          minHeight: '76vh',
+          alignItems: 'center'
+        }}
+      >
+        <Paper shadow="lg" radius="lg">
+          <Flex justify="center" align="center">
+            <div className={classes.wrapper}>
+              <div
+                className={classes.contacts}
+                //  style={{ backgroundImage: `url(${bg})` }}
+              >
+                <Image className={classes.title} src={img1} />
 
-              <ContactIconsList />
-            </div>
-
-            <form className={classes.form} onSubmit={form.onSubmit(onSubmit)}>
-              <Text fz="lg" fw={700} className={classes.title}>
-                Get in touch
-              </Text>
-
-              <div className={classes.fields}>
-                <SimpleGrid cols={2}>
-                  <TextInput label="Your name" placeholder="Your name" {...form.getInputProps('name')} />
-                  <TextInput label="Your email" placeholder="example@gmail.com" required {...form.getInputProps('email')} />
-                </SimpleGrid>
-
-                <InputBase
-                  mt="md"
-                  label="Phone"
-                  component={IMaskInput}
-                  mask="+998 (00) 000 00 00"
-                  placeholder="Phone"
-                  required
-                  {...form.getInputProps('phone')}
-                />
-
-                <Textarea
-                  mt="md"
-                  label="Your message"
-                  placeholder="Please include all relevant information"
-                  minRows={3}
-                  {...form.getInputProps('message')}
-                />
-
-                <Group align="flex-end" mt="md">
-                  <Button type="submit" color="grape" loading={loading} className={classes.control}>
-                    Send message
-                  </Button>
-                </Group>
+                <ContactIconsList />
               </div>
-            </form>
-          </div>
-        </Flex>
-      </Paper>
+
+              <form className={classes.form} onSubmit={form.onSubmit(onSubmit)}>
+                <Text fz="lg" fw={700} className={classes.title}>
+                  Get in touch
+                </Text>
+
+                <div className={classes.fields}>
+                  <SimpleGrid cols={2}>
+                    <TextInput label="Your name" placeholder="Your name" {...form.getInputProps('name')} />
+                    <TextInput label="Your email" placeholder="example@gmail.com" required {...form.getInputProps('email')} />
+                  </SimpleGrid>
+
+                  <InputBase
+                    mt="md"
+                    label="Phone"
+                    component={IMaskInput}
+                    mask="+998 (00) 000 00 00"
+                    placeholder="Phone"
+                    required
+                    {...form.getInputProps('phone')}
+                  />
+
+                  <Textarea
+                    mt="md"
+                    label="Your message"
+                    placeholder="Please include all relevant information"
+                    minRows={3}
+                    {...form.getInputProps('message')}
+                  />
+
+                  <Group align="flex-end" mt="md">
+                    <Button type="submit" color="grape" loading={loading} className={classes.control}>
+                      Send message
+                    </Button>
+                  </Group>
+                </div>
+              </form>
+            </div>
+          </Flex>
+        </Paper>
+      </Container>
       <Footer />
     </>
   )

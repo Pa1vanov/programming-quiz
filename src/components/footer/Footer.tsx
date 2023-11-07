@@ -1,12 +1,12 @@
-import { ActionIcon, Container, Flex, rem, Title } from '@mantine/core'
+import { ActionIcon, Box, Container, Flex, rem, Title } from '@mantine/core'
 import { IconBrandInstagram, IconBrandTelegram, IconBrandYoutube } from '@tabler/icons-react'
 
 import classes from './FooterSocial.module.css'
 
 export function Footer() {
   return (
-    <div className={classes.footer}>
-      <Container className={classes.inner}>
+    <Box>
+      <Container fluid p="10px 50px" h="12vh" bg="#A76AE4" className={classes.inner}>
         <Title color="white">QUIZ</Title>
         <Flex gap={5} className={classes.links} justify="flex-end" wrap="nowrap">
           <ActionIcon size="lg" variant="transparent">
@@ -26,7 +26,7 @@ export function Footer() {
           </ActionIcon>
         </Flex>
       </Container>
-    </div>
+    </Box>
   )
 }
 

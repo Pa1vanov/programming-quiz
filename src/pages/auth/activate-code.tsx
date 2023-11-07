@@ -47,7 +47,7 @@ const ActivateCode = (props: ActivateCodeProps) => {
   }
 
   return (
-    <Box>
+    <Box w="100vw">
       <Flex className="main" h="100vh" align="center" justify="center" gap={30}>
         <img style={{ width: '500px' }} src={LoginImg} alt="Img" />
         <Box bg="white" p="xl" sx={{ boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px', border: '1px solid none', borderRadius: '10px' }}>
