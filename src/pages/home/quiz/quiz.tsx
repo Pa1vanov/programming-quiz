@@ -107,7 +107,7 @@ const QuizCategoryPage: React.FC = () => {
                 borderRadius: '20px',
                 boxShadow: 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px'
               }}
-              w="380px"
+              w="395px"
               key={state?.questions[0].id}
               p="md"
               bg="white"
@@ -127,7 +127,7 @@ const QuizCategoryPage: React.FC = () => {
                       <Button
                         variant="transparent"
                         bg="white"
-                        w="350px"
+                        w="365px"
                         h="50px"
                         mt="md"
                         disabled={isEnd}

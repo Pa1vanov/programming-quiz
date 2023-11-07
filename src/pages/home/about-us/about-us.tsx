@@ -22,7 +22,6 @@ export default function AboutUs() {
           className="Card"
           sx={{ width: '320px', display: 'grid', placeItems: 'center' }}
           shadow="sm"
-          padding="xl"
           component="a"
           href="https://www.youtube.com/watch?v=kqtD5dpn9C8"
           target="_blank"
@@ -46,7 +45,6 @@ export default function AboutUs() {
           className="Card"
           sx={{ width: '320px', display: 'grid', placeItems: 'center' }}
           shadow="sm"
-          padding="xl"
           component="a"
           href="https://www.youtube.com/watch?v=W6NZfCO5SIk"
           target="_blank"
@@ -69,7 +67,6 @@ export default function AboutUs() {
           className="Card"
           sx={{ width: '320px', display: 'grid', placeItems: 'center' }}
           shadow="sm"
-          padding="xl"
           component="a"
           href="https://www.youtube.com/watch?v=gfkTfcpWqAY"
           target="_blank"
@@ -92,7 +89,6 @@ export default function AboutUs() {
           className="Card"
           sx={{ width: '320px', display: 'grid', placeItems: 'center' }}
           shadow="sm"
-          padding="xl"
           component="a"
           href="https://www.youtube.com/watch?v=VPvVD8t02U8"
           target="_blank"
@@ -116,7 +112,6 @@ export default function AboutUs() {
           className="Card"
           sx={{ width: '320px', display: 'grid', placeItems: 'center' }}
           shadow="sm"
-          padding="xl"
           component="a"
           href="https://www.youtube.com/watch?v=BfEjDD8mWYg"
           target="_blank"
@@ -140,7 +135,6 @@ export default function AboutUs() {
           className="Card"
           sx={{ width: '320px', display: 'grid', placeItems: 'center' }}
           shadow="sm"
-          padding="xl"
           component="a"
           href="https://www.youtube.com/watch?v=un6ZyFkqFKo"
           target="_blank"

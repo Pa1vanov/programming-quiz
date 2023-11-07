@@ -14,14 +14,14 @@ const QuizAppCategoryPage: React.FC = () => {
   const categoryImageUrls: any = {
     Go: 'https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png',
     Python: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Python_logo_01.svg/1200px-Python_logo_01.svg.png',
-    Java: 'https://static.vecteezy.com/system/resources/previews/020/109/178/original/java-editorial-logo-free-download-free-vector.jpg',
+    Java: 'https://logospng.org/download/java/logo-java-512.png',
     JavaScript: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Javascript_Logo.png',
     'C#': 'https://crystalpng.com/wp-content/uploads/2023/02/C-Sharp-logo.png',
     'C++': 'https://upload.wikimedia.org/wikipedia/commons/3/32/C%2B%2B_logo.png',
-    C: 'https://i.pinimg.com/originals/6e/46/e7/6e46e7dbe2bb73dacc055e5dbd85c3ad.png',
+    C: 'https://toppng.com/uploads/thumbnail/c-programming-icon-c-programming-language-logo-11562945679rfj4y9zyt5.png',
     Flutter: 'https://web-strapi.mrmilu.com/uploads/flutter_logo_470e9f7491.png',
-    HTML: 'https://thumbs.dreamstime.com/b/astana-kazakhstan-july-html-icon-logo-vector-symbol-198641993.jpg',
-    CSS: 'https://p.kindpng.com/picc/s/493-4938086_css-3-hd-png-download.png',
+    HTML: 'https://www.svgrepo.com/show/452228/html-5.svg',
+    CSS: 'https://www.svgrepo.com/show/452185/css-3.svg',
     Net: 'https://www.ibm.com/content/dam/adobe-cms/instana/media_logo/dotnetCore.component.complex-narrative-xl.ts=1690481702068.png/content/adobe-cms/us/en/products/instana/supported-technologies/dotnet-core-monitoring/_jcr_content/root/table_of_contents/body/content_section_styled/content-section-body/complex_narrative/logoimage'
   }
 
