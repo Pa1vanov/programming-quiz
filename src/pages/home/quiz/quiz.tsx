@@ -95,7 +95,7 @@ const QuizCategoryPage: React.FC = () => {
       )}
       <LoadingOverlay visible={loading} overlayBlur={2} loaderProps={{ color: 'pink', type: 'bars' }} />
 
-      <Box>
+      <Box w="100vw">
         <Flex className="main" align="center" justify="center" wrap="wrap" gap="60px">
           <img style={{ width: '500px', height: '500px' }} src={quizzImg} alt="img" />
           <Flex h="100vh" align="center" justify="center">

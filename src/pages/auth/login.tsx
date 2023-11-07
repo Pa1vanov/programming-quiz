@@ -61,7 +61,7 @@ const Login = (props: LoginProps) => {
   }
 
   return (
-    <Box>
+    <Box w="100vw">
       <Flex className="main" align="center" justify="center" gap="xl" wrap="wrap">
         <img style={{ width: '500px' }} src={LoginImg} alt="Img" />
         <Flex h="100vh" align="center" justify="center">

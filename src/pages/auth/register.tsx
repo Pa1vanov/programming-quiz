@@ -34,6 +34,7 @@ const Register = (props: RegisterProps) => {
   const onSubmit = async (values: IForm.Register) => {
     try {
       setLoading(true)
+      localStorage.setItem('email', values.email)
       const { data } = await Api.Register(values)
 
       success('Register successful')
@@ -46,7 +47,7 @@ const Register = (props: RegisterProps) => {
   }
 
   return (
-    <Box>
+    <Box w="100vw">
       <Flex className="main" h="100vh" align="center" justify="center" wrap="wrap" gap="xl">
         <img style={{ width: '500px' }} src={LoginImg} alt="Img" />
         <Flex
