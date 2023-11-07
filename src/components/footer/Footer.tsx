@@ -6,7 +6,7 @@ import classes from './FooterSocial.module.css'
 export function Footer() {
   return (
     <Box>
-      <Container fluid p="10px 50px" h="12vh" bg="#A76AE4" className={classes.inner}>
+      <Container fluid h="12vh" p="10px 50px" bg="#A76AE4" className={classes.inner}>
         <Title color="white">QUIZ</Title>
         <Flex gap={5} className={classes.links} justify="flex-end" wrap="nowrap">
           <ActionIcon size="lg" variant="transparent">

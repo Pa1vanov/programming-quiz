@@ -27,16 +27,19 @@ const ActivateCode = (props: ActivateCodeProps) => {
   const [loading, setLoading] = useState(false)
 
   const form = useForm<IForm.ActivateCode>({
-    initialValues: { email: '', activate_code: '' },
+    initialValues: { email: `${localStorage.getItem('email')}`, activate_code: '' },
     validate: yupResolver(schema)
   })
 
   const onSubmit = async (values: IForm.ActivateCode) => {
     try {
       setLoading(true)
+
       await Api.ActivateCode(values)
 
       success('Verify successful')
+
+      localStorage.removeItem('email')
 
       navigate('/auth/login')
     } catch (err: any) {
@@ -58,7 +61,7 @@ const ActivateCode = (props: ActivateCodeProps) => {
             </Text>
             <hr />
             <Flex w="350px" p="lg" direction="column" gap={15}>
-              <InputBase placeholder="Email" label="Email" {...form.getInputProps('email')} />
+              <InputBase disabled placeholder="Email" label="Email" {...form.getInputProps('email')} />
               <InputBase placeholder="Activate Code" label="Activate Code" {...form.getInputProps('activate_code')} />
               <Button
                 sx={{ margin: 'auto', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px' }}
