@@ -1,12 +1,13 @@
 .footer {
   background: #a76ae4;
-  padding: 70px;
+  padding: 0px 70px;
   margin-top: rem(120px);
   border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
 }
 
 .inner {
   display: flex;
+  height: 12vh;
   justify-content: space-between;
   align-items: center;
   padding-top: var(--mantine-spacing-xl);

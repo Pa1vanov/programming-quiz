@@ -1,6 +1,9 @@
 body {
   background: #a76ae4;
+  display: flex;
+  justify-content: center;
 }
 #root {
   background: #fff;
+  max-width: 1440px;
 }

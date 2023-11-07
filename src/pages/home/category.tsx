@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Flex, LoadingOverlay } from '@mantine/core'
+import { Container, Flex, LoadingOverlay } from '@mantine/core'
 import { Api } from 'modules/home'
 
 import { Card, Footer } from 'components'
@@ -43,23 +43,30 @@ const QuizAppCategoryPage: React.FC = () => {
   }, [])
 
   return (
-    <Flex className="quiz-app-category-page" direction="column" gap={20}>
+    <>
       <Navbar />
-      <Flex justify="center" direction="row" wrap="wrap" gap={50} p="40px">
-        <LoadingOverlay pos="relative" h="500px" visible={loading} overlayBlur={2} loaderProps={{ color: 'pink', type: 'bars' }} />
+      <Container
+        fluid
+        sx={{
+          minHeight: '76vh'
+        }}
+      >
+        <Flex justify="center" h="100%" direction="row" wrap="wrap" gap={50} p="40px">
+          <LoadingOverlay pos="relative" h="500px" visible={loading} overlayBlur={2} loaderProps={{ color: 'pink', type: 'bars' }} />
 
-        {categories.map((category: any) => (
-          <Card
-            key={category.id}
-            id={category.id}
-            image={categoryImageUrls[category.title]}
-            title={category.title}
-            description={category.description}
-          />
-        ))}
-      </Flex>
+          {categories.map((category: any) => (
+            <Card
+              key={category.id}
+              id={category.id}
+              image={categoryImageUrls[category.title]}
+              title={category.title}
+              description={category.description}
+            />
+          ))}
+        </Flex>
+      </Container>
       <Footer />
-    </Flex>
+    </>
   )
 }
 
